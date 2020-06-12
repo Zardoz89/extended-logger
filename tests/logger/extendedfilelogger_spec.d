@@ -1,9 +1,9 @@
 /**
 Test of logger
 */
-module extendedfilelogger_spec;
+module logger.extendedfilelogger_spec;
 
-import extendedfilelogger;
+import logger;
 
 import pijamas;
 
@@ -45,12 +45,12 @@ unittest
         output.should.have.length(6);
 
         // and("each line must have the expected format")
-        output[0].should.match(`[0-9T\-:.]+ \[all\] extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Log`);
-        output[1].should.match(`[0-9T\-:.]+ \[trace\] extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Trace`);
-        output[2].should.match(`[0-9T\-:.]+ \[info\] extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Info`);
-        output[3].should.match(`[0-9T\-:.]+ \[warning\] extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Warning`);
-        output[4].should.match(`[0-9T\-:.]+ \[error\] extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Error`);
-        output[5].should.match(`[0-9T\-:.]+ \[critical\] extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Critical`);
+        output[0].should.match(`[0-9T\-:.]+ \[all\] (tests[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Log`);
+        output[1].should.match(`[0-9T\-:.]+ \[trace\] (tests[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Trace`);
+        output[2].should.match(`[0-9T\-:.]+ \[info\] (tests[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Info`);
+        output[3].should.match(`[0-9T\-:.]+ \[warning\] (tests[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Warning`);
+        output[4].should.match(`[0-9T\-:.]+ \[error\] (tests[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Error`);
+        output[5].should.match(`[0-9T\-:.]+ \[critical\] (tests[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Critical`);
     }
 
     // describe("logging with ConfigurableLogPattern and simplePattern must result on the expected log pattern")
@@ -104,11 +104,11 @@ unittest
         output.should.have.length(6);
 
         // and("each line must have the expected format")
-        output[0].should.match(`[0-9T\-:.]+ al extendedfilelogger_spec [0-9]+ \[Tid\([0-9a-f]+\)\] Log`);
-        output[1].should.match(`[0-9T\-:.]+ tr extendedfilelogger_spec [0-9]+ \[Tid\([0-9a-f]+\)\] Trace`);
-        output[2].should.match(`[0-9T\-:.]+ in extendedfilelogger_spec [0-9]+ \[Tid\([0-9a-f]+\)\] Info`);
-        output[3].should.match(`[0-9T\-:.]+ wa extendedfilelogger_spec [0-9]+ \[Tid\([0-9a-f]+\)\] Warning`);
-        output[4].should.match(`[0-9T\-:.]+ er extendedfilelogger_spec [0-9]+ \[Tid\([0-9a-f]+\)\] Error`);
-        output[5].should.match(`[0-9T\-:.]+ cr extendedfilelogger_spec [0-9]+ \[Tid\([0-9a-f]+\)\] Critical`);
+        output[0].should.match(`[0-9T\-:.]+ al logger.extendedfilelogger_spec [0-9]+ \[Tid\([0-9a-f]+\)\] Log`);
+        output[1].should.match(`[0-9T\-:.]+ tr logger.extendedfilelogger_spec [0-9]+ \[Tid\([0-9a-f]+\)\] Trace`);
+        output[2].should.match(`[0-9T\-:.]+ in logger.extendedfilelogger_spec [0-9]+ \[Tid\([0-9a-f]+\)\] Info`);
+        output[3].should.match(`[0-9T\-:.]+ wa logger.extendedfilelogger_spec [0-9]+ \[Tid\([0-9a-f]+\)\] Warning`);
+        output[4].should.match(`[0-9T\-:.]+ er logger.extendedfilelogger_spec [0-9]+ \[Tid\([0-9a-f]+\)\] Error`);
+        output[5].should.match(`[0-9T\-:.]+ cr logger.extendedfilelogger_spec [0-9]+ \[Tid\([0-9a-f]+\)\] Critical`);
     }
 }

@@ -1,4 +1,4 @@
-module extendedfilelogger;
+module logger.extendedfilelogger;
 
 import std.experimental.logger;
 import std.stdio;

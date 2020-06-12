@@ -1,7 +1,7 @@
-module consolelogger;
+module logger.consolelogger;
 
 import std.experimental.logger;
-import extendedfilelogger;
+import logger.extendedfilelogger;
 
 /**
  * A simple color mapping that sets:
