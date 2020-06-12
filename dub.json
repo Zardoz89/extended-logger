@@ -43,7 +43,7 @@
 		}
 	},
 	"toolchainRequirements": {
-		"dub": ">=1.20.0",
-		"frontend": ">=2.91.0"
+		"dub": ">=1.19.0",
+		"frontend": ">=2.90.1"
 	}
 }
