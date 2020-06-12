@@ -12,13 +12,14 @@
 *.lib
 
 # Executables
+extendedlogger-test-unittest
 *.exe
 
 # DUB
 .dub
 docs.json
 __dummy.html
-docs/
+#docs/
 
 # Code coverage
 *.lst
