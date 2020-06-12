@@ -1,5 +1,5 @@
 /**
-Test of logger
+Test of ExtendedFileLogger
 */
 module logger.extendedfilelogger_spec;
 
@@ -112,3 +112,4 @@ unittest
         output[5].should.match(`[0-9T\-:.]+ cr logger.extendedfilelogger_spec [0-9]+ \[Tid\([0-9a-f]+\)\] Critical`);
     }
 }
+

@@ -1,4 +1,4 @@
-# extendedlogger
+# ExtendedLogger
 Some usefull extension for std.experimental.logger
 
 ## ExtendedFileLogger
@@ -76,7 +76,7 @@ the `ConfigurableAnsiLogPattern` log pattern, that colorizes the priority with A
 
 An example :
 ```D
-    auto logger = new ConsoleLogger(LogLevel.info);
+    auto logger = new ConsoleLogger();
     logger.log("Log");
     logger.trace("Tracing");
     logger.info("Info");
