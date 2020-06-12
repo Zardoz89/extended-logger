@@ -1,5 +1,5 @@
 /**
-Test of ExtendedFileLogger
+Specification of ExtendedFileLogger
 */
 module logger.extendedfilelogger_spec;
 
@@ -45,12 +45,13 @@ unittest
         output.should.have.length(6);
 
         // and("each line must have the expected format")
-        output[0].should.match(`[0-9T\-:.]+ \[all\] (tests[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Log`);
-        output[1].should.match(`[0-9T\-:.]+ \[trace\] (tests[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Trace`);
-        output[2].should.match(`[0-9T\-:.]+ \[info\] (tests[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Info`);
-        output[3].should.match(`[0-9T\-:.]+ \[warning\] (tests[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Warning`);
-        output[4].should.match(`[0-9T\-:.]+ \[error\] (tests[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Error`);
-        output[5].should.match(`[0-9T\-:.]+ \[critical\] (tests[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Critical`);
+        // On windows, the SimpleLogPattern, appends two levels of directory name. A bug ?
+        output[0].should.match(`[0-9T\-:.]+ \[all\] (tests[\\/]logger[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Log`);
+        output[1].should.match(`[0-9T\-:.]+ \[trace\] (tests[\\/]logger[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Trace`);
+        output[2].should.match(`[0-9T\-:.]+ \[info\] (tests[\\/]logger[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Info`);
+        output[3].should.match(`[0-9T\-:.]+ \[warning\] (tests[\\/]logger[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Warning`);
+        output[4].should.match(`[0-9T\-:.]+ \[error\] (tests[\\/]logger[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Error`);
+        output[5].should.match(`[0-9T\-:.]+ \[critical\] (tests[\\/]logger[\\/])?extendedfilelogger_spec.d:[0-9]+:[a-zA-Z0-9_]+ Critical`);
     }
 
     // describe("logging with ConfigurableLogPattern and simplePattern must result on the expected log pattern")
