@@ -20,7 +20,7 @@ jobs:
           - windows-latest
         dc:
           - dmd-latest
-          - dmd-2.090.1
+          - dmd-2.091.1
           - ldc-latest
 
     runs-on: ${{ matrix.os }}
