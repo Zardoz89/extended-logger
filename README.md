@@ -1,4 +1,8 @@
-# ExtendedLogger
+ ExtendedLogger
+===============
+[![DUB](https://img.shields.io/dub/v/extendedlogger)](https://code.dlang.org/packages/extendedlogger)
+![Build status](https://img.shields.io/github/checks-status/Zardoz89/extended-logger/master)
+
 Some usefull extension for std.experimental.logger
 
 ## ExtendedFileLogger
