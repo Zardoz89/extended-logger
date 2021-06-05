@@ -1,3 +1,8 @@
+
+# Created by https://www.gitignore.io/api/d
+# Edit at https://www.gitignore.io/?templates=d
+
+### D ###
 # Compiled Object files
 *.o
 *.obj
@@ -12,14 +17,27 @@
 *.lib
 
 # Executables
-extendedlogger-test-unittest
 *.exe
 
 # DUB
 .dub
 docs.json
 __dummy.html
-#docs/
 
 # Code coverage
 *.lst
+
+### D Patch ###
+# Test Executables
+*-test-*
+
+# Comment to allow dub lock file to be version controlled as well
+dub.selections.json
+
+# End of https://www.gitignore.io/api/d
+
+*~
+*.swp
+*.deps
+.lock-*
+build/*

@@ -1,0 +1,24 @@
+{
+    "authors": [
+        "Luis Panadero Guardeño"
+    ],
+    "copyright": "Copyright © 2020, Luis Panadero Guardeño",
+    "description": "Some usefull extensions for std.experimental.logger",
+    "license": "BSL-1.0",
+    "name": "extendedlogger-tests",
+    "targetType": "library",
+    "importPaths": [".", "../source"],
+    "sourcePaths": [".", "../source"],
+    "configurations": [
+        {
+            "name": "extendedlogger"
+        },
+        {
+            "name": "unittest",
+            "dependencies": {
+                "pijamas": "~>0.3.5",
+                "silly": "~>1.1"
+            }
+        }
+    ]
+}

@@ -1,49 +1,28 @@
 {
-	"authors": [
-		"Luis Panadero Guardeño"
-	],
-	"copyright": "Copyright © 2020, Luis Panadero Guardeño",
-	"description": "Some usefull extensions for std.experimental.logger",
-	"license": "BSL-1.0",
-	"name": "extendedlogger",
-	"configurations": [
-		{
-			"name": "extendedlogger",
-			"targetType": "library"
-		},
-		{
-			"name": "unittest",
-			"dependencies": {
-				"pijamas": "~>0.3.3",
-				"silly": "~>1.0.2"
-			},
-			"importPaths": [
-				"source",
-				"tests"
-			],
-			"sourcePaths": [
-				"source",
-				"tests"
-			],
-			"targetType": "library"
-		}
-	],
-	"buildTypes": {
-		"docs": {
-			"buildOptions": [
-				"syntaxOnly"
-			],
-			"dflags": [
-				"-c",
-				"-Dddocs"
-			],
-			"dflags-dmd": [
-				"-preview=markdown"
-			]
-		}
-	},
-	"toolchainRequirements": {
-		"dub": ">=1.19.0",
-		"frontend": ">=2.090"
-	}
+    "authors": [
+        "Luis Panadero Guardeño"
+    ],
+    "copyright": "Copyright © 2020, Luis Panadero Guardeño",
+    "description": "Some usefull extensions for std.experimental.logger",
+    "license": "BSL-1.0",
+    "name": "extendedlogger",
+    "targetType": "library",
+    "buildTypes": {
+        "docs": {
+            "buildOptions": [
+                "syntaxOnly"
+            ],
+            "dflags": [
+                "-c",
+                "-Dddocs"
+            ],
+            "dflags-dmd": [
+                "-preview=markdown"
+            ]
+        }
+    },
+    "toolchainRequirements": {
+        "dub": ">=1.19.0",
+        "frontend": ">=2.090"
+    }
 }
