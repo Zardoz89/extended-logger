@@ -19,8 +19,8 @@ interface ILogPattern
      * Writes on a outputRange of chars, the logging pattern
      * Params:
      *  outputFile = output File where where tow rite the logging request.
-     *  file = file name where the logging request was issued. 
-     *  line = line number from where the logging request was issued. 
+     *  file = file name where the logging request was issued.
+     *  line = line number from where the logging request was issued.
      *  funcName = the function or method name where the logging request was issued.
      *  prettyFuncName = the function or method prettyfied name where the logging request was issued.
      *  moduleName = the module name where the logging request was issued.
@@ -42,8 +42,8 @@ class SimpleLogPattern : ILogPattern
      * Writes on a outputRange of chars, the logging pattern
      * Params:
      *  outputFile = output File where where tow rite the logging request.
-     *  file = file name where the logging request was issued. 
-     *  line = line number from where the logging request was issued. 
+     *  file = file name where the logging request was issued.
+     *  line = line number from where the logging request was issued.
      *  funcName = the function or method name where the logging request was issued.
      *  prettyFuncName = the function or method prettyfied name where the logging request was issued.
      *  moduleName = the module name where the logging request was issued.
@@ -75,7 +75,7 @@ class SimpleLogPattern : ILogPattern
  * | m | Module name |
  * | d | Used to output the date of the logging event. Actually only outputs on ISO format |
  * | F | Used to output the file name where the logging request was issued. |
- * | L | Used to output the line number from where the logging request was issued. | 
+ * | L | Used to output the line number from where the logging request was issued. |
  * | M | Used to output the function or method name where the logging request was issued. |
  * | p | Used to output the priority of the logging event. |
  * | r | Used to output number of milliseconds elapsed from the construction of this logger until the logging event. |
@@ -99,8 +99,8 @@ class ConfigurableLogPattern : ILogPattern
      * Writes on a outputRange of chars, the logging pattern
      * Params:
      *  outputFile = output File where where tow rite the logging request.
-     *  file = file name where the logging request was issued. 
-     *  line = line number from where the logging request was issued. 
+     *  file = file name where the logging request was issued.
+     *  line = line number from where the logging request was issued.
      *  funcName = the function or method name where the logging request was issued.
      *  prettyFuncName = the function or method prettyfied name where the logging request was issued.
      *  moduleName = the module name where the logging request was issued.
@@ -116,12 +116,12 @@ class ConfigurableLogPattern : ILogPattern
         auto lt = outputFile.lockingTextWriter();
 
         import std.uni : byCodePoint;
-        this.parsePattern(lt, this.logPattern.byCodePoint, file, line, funcName, prettyFuncName, moduleName, 
+        this.parsePattern(lt, this.logPattern.byCodePoint, file, line, funcName, prettyFuncName, moduleName,
             logLevel, threadId, timestamp, startTimeStamp);
     }
 
     private void parsePattern(OutputRange, InputRange)(OutputRange outputRange, InputRange patternRange, string file,
-        int line, string funcName, string prettyFuncName, string moduleName, LogLevel logLevel, Tid threadId, 
+        int line, string funcName, string prettyFuncName, string moduleName, LogLevel logLevel, Tid threadId,
         SysTime timestamp, SysTime startTimeStamp ) @trusted
     if (isOutputRange!(OutputRange, char) && isInputRange!(InputRange))
     {
@@ -140,7 +140,7 @@ class ConfigurableLogPattern : ILogPattern
         // Value stores the output string
         import std.conv : to;
         switch (patternRange.front) {
-            case '%': // The sequence %% outputs a single percent sign. 
+            case '%': // The sequence %% outputs a single percent sign.
                 outputRange.put('%');
                 break;
 
@@ -187,7 +187,7 @@ class ConfigurableLogPattern : ILogPattern
 
         // Iterate for the next pattern token
         if (!patternRange.empty) {
-            this.parsePattern(outputRange, patternRange, file, line, funcName, prettyFuncName, moduleName, 
+            this.parsePattern(outputRange, patternRange, file, line, funcName, prettyFuncName, moduleName,
                 logLevel, threadId, timestamp, startTimeStamp);
         }
     }
@@ -201,10 +201,10 @@ class ConfigurableLogPattern : ILogPattern
 
         // Get the padding modifier
         if (patternRange.front == '+' || patternRange.front == '-' || patternRange.front.isDigit) {
-            import std.conv : parse;
+            import std.conv : parse, ConvException;
             try {
                 modifier[0] = patternRange.parse!int;
-            } catch (std.conv.ConvException ex) {
+            } catch (ConvException ex) {
                 // We ignore it silently
             }
         }
@@ -212,10 +212,10 @@ class ConfigurableLogPattern : ILogPattern
         if (patternRange.front == '.') {
             patternRange.popFront; // Consume the '.' separator
             if (patternRange.front.isDigit) {
-                import std.conv : parse;
+                import std.conv : parse, ConvException;
                 try {
                     modifier[1] = patternRange.parse!size_t;
-                } catch (std.conv.ConvException ex) {
+                } catch (ConvException ex) {
                     // Silently we ignore it
                 }
             }
@@ -231,7 +231,7 @@ class ConfigurableLogPattern : ILogPattern
     /// string following loglevel. Usefull to colorize it, with ANSI
     protected string logLevelPostfix(const LogLevel logLevel) {
         return "";
-    }  
+    }
 }
 
 import std.range : isOutputRange;
@@ -292,11 +292,11 @@ class ExtendedFileLogger : FileLogger
     }
 
     /** A constructor for the `ExtendedFileLogger` Logger that takes a reference to a `File`.
-    The `File` passed must be open for all the log call to the `ExtendedFileLogger`. If the `File` 
+    The `File` passed must be open for all the log call to the `ExtendedFileLogger`. If the `File`
     gets closed, using the `ExtendedFileLogger` for logging will result in undefined behaviour.
     Params:
       fn = The file used for logging.
-      lv = The `LogLevel` for the `ExtendedFileLogger`. By default the `LogLevel` for 
+      lv = The `LogLevel` for the `ExtendedFileLogger`. By default the `LogLevel` for
       `ExtendedFileLogger` is `LogLevel.all`.
       createFileNameFolder = if yes and fn contains a folder name, this folder will be created.
       logPattern = An implementation of the `ILogPattern`.
@@ -316,12 +316,12 @@ class ExtendedFileLogger : FileLogger
     }
 
     /** A constructor for the `ExtendedFileLogger` Logger that takes a reference to a `File`.
-    The `File` passed must be open for all the log call to the `ExtendedFileLogger`. If 
-    the `File` gets closed, using the `ExtendedFileLogger` for logging will result in 
+    The `File` passed must be open for all the log call to the `ExtendedFileLogger`. If
+    the `File` gets closed, using the `ExtendedFileLogger` for logging will result in
     undefined behaviour.
     Params:
       file = The file used for logging.
-      lv = The `LogLevel` for the `ExtendedFileLogger`. By default the `LogLevel` for 
+      lv = The `LogLevel` for the `ExtendedFileLogger`. By default the `LogLevel` for
       `ExtendedFileLogger` is `LogLevel.all`.
       logPattern = An implementation of the `ILogPattern`. By default uses SimpleLogPattern.
     Example:
@@ -349,7 +349,7 @@ class ExtendedFileLogger : FileLogger
         ptrdiff_t fnIdx = file.lastIndexOf('/') + 1;
         ptrdiff_t funIdx = funcName.lastIndexOf('.') + 1;
 
-        this.logPattern.applyPattern(this.file, file[fnIdx..$], line, funcName[funIdx..$], prettyFuncName, moduleName, 
+        this.logPattern.applyPattern(this.file, file[fnIdx..$], line, funcName[funIdx..$], prettyFuncName, moduleName,
             logLevel, threadId, timestamp, this.startTimeStamp);
     }
 
