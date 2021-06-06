@@ -36,15 +36,22 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v2
 
-      - name: 'Build & Test'
+      - name: Build
         run: |
           # Release build
           dub build --parallel -b release
           dub clean --all-packages -q
-          # Run tests
+      - name: Test with Silly
+        if: matrix.dc != 'dmd-2.086.1'
+        run:
           dub test --root=tests/ --parallel --coverage
+
+      - name: Test without Silly
+        if: matrix.dc == 'dmd-2.086.1'
+        run:
+          dub test --root=tests/ --parallel -c unittest-nosilly
 
       - name: Upload Coverage to Codecov
         # Upload test coverage
-        if: runner.os == 'Linux'
+        if: github.ref == 'refs/heads/master' && runner.os == 'Linux' && matrix.dc == 'dmd-latest'
         run: bash <(curl -s https://codecov.io/bash)
