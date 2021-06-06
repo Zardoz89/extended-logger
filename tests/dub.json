@@ -16,8 +16,14 @@
         {
             "name": "unittest",
             "dependencies": {
-                "pijamas": "~>0.3.5",
+                "pijamas": "~>1.0",
                 "silly": "~>1.1"
+            }
+        },
+        {
+            "name": "unittest-nosilly",
+            "dependencies": {
+                "pijamas": "~>1.0"
             }
         }
     ]

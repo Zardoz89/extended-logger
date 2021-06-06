@@ -2,6 +2,7 @@
 ===============
 [![DUB](https://img.shields.io/dub/v/extendedlogger)](https://code.dlang.org/packages/extendedlogger)
 ![Build status](https://img.shields.io/github/checks-status/Zardoz89/extended-logger/master)
+[![codecov](https://codecov.io/gh/Zardoz89/extended-logger/branch/master/graph/badge.svg?token=A93ITADMKS)](https://codecov.io/gh/Zardoz89/extended-logger)
 
 Some usefull extension for std.experimental.logger
 
